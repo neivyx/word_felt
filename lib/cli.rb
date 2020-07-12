@@ -17,28 +17,30 @@ class CLI
     def greeting
         line 
         puts "|| WordFelt: Anthology || "
-        puts "   >> Poetry Classics <<"
+        line
+        puts "  >> Poetry Classics <<"
+        line
+        puts "     -by. neivy"
+    end
+
+    def ask
+        line
+        puts "Enter 'yes' or 'no' to continue."
         line
     end
 
-    # def ask
-    #     line
-    #     puts "Would you like to retrieve a random poem, from the archives?"
-    #     puts ""
-    #     line
-    # end
-
-    def ask
+    def start
         line
         puts "Would you like to retrieve a random poem, from the archives?"
         print ""
         line
-        puts "Enter 'yes' or 'no' to continue."
+        ask
         user_input = gets.chomp.to_s.downcase
         if user_input == 'yes'
             line
             print_poem
             line
+            reprint
         elsif user_input == "no"
             line
            puts "farewell my friend."
@@ -53,17 +55,20 @@ class CLI
     end
 
     def print_poem
-        puts "poem printed"
+        puts API.new.get_poems
     end
 
     def reprint
         puts "Would you like generate a new poem?"
+        ask
         print ""
         user_input = gets.strip.to_s.downcase
-        if user_input == "y"
+        if user_input == "yes"
+            line
             print_poem
+            line
             reprint
-        elsif user_input == "n"
+        elsif user_input == "no"
         else
 
         end
