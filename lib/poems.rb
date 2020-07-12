@@ -1,12 +1,13 @@
 class Poem
 
-    attr_accessor :name, :author
+    attr_accessor :name, :author, :lines
 
     @@all = []
 
-    def initialize(name, author)
+    def initialize(name, author, lines)
         @name = name
         @author = author
+        @lines = lines
         @@all << self
     end
 
@@ -14,5 +15,5 @@ class Poem
         @@all
     end
 
-    puts "hello3"
+
 end
