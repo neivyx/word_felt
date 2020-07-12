@@ -43,8 +43,7 @@ class CLI
             reprint
         elsif user_input == "no"
             line
-           puts "farewell my friend."
-           puts "\tfin."
+          farewell
             line
         else
             line
@@ -52,6 +51,13 @@ class CLI
             line
         end
 
+    end
+
+    def farewell
+        line
+        puts "farewell my friend."
+        puts "\tfin."
+        line
     end
 
     def print_poem
@@ -68,8 +74,10 @@ class CLI
             print_poem
             line
             reprint
-        elsif user_input == "no"
-        else
+        else user_input == "no"
+            line
+            farewell
+            line
 
         end
         
