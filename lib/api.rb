@@ -2,21 +2,37 @@ require 'pry'
 require 'httparty'
 
 class API
-    BASE_URL = "https://poetrydb.org/random/1"
+    URL = "https://poetrydb.org/author"
 
     def get_poems
 
-        response = HTTParty.get(BASE_URL)
-        response.each do |text|
-            Poem.new(text["author"], text["title"], text["lines"])
+        response = HTTParty.get(URL + ",linecount/;12/author,title,lines").to_a
+        (0..11).each { |i| puts response[rand(154)]['lines'][i].split"#" }
+
+
+        Poem.new(@lines,@author,@name)
+        
+           
+        # end
+    end
+
+
+
+    end
+#ODD CODE
+
+    # BASE_URL = "https://poetrydb.org/random/1"
+    # def get_poems
+
+    #     response = HTTParty.get(BASE_URL)
+    #     response.each do |text|
+    #         Poem.new(text["author"], text["title"], text["lines"])
 
            
-        end
-    end
+    #     end
+    # end
 
-
-
-    end
+# ===========
 
     # response = HTTParty.get('https://poetrydb.org/random/1')
     # response.select {|i| puts "quoteText: 
