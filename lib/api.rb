@@ -7,8 +7,8 @@ class API
     URL = "https://poetrydb.org/author"
 
     def get_poems
-        response = HTTParty.get(URL + ",linecount/;16/author,title,lines").to_a
-            (0..15).each { |i| puts response[rand(154)]['lines'][i] }
+        response = HTTParty.get(URL + ",linecount/author,title,lines")
+             puts response[rand(154)]["title"][i]
     end
 
     def get_longer_poems
@@ -35,7 +35,12 @@ end
 
 # https://poetrydb.org/author,linecount/Poe;14/lines
 
+https://poetrydb.org/random,linecount;10/lines
+https://poetrydb.org/random
+
 # https://poetrydb.org/author/Poe/all
+
+# https://poetrydb.org/author/all/author,title,lines
 
 # https://poetrydb.org/author/Poe/author,title,lines
 
