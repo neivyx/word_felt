@@ -38,17 +38,19 @@ class CLI
     end
 
     def start
-        slee(1!)
+        sleep(1)
         line
         puts "Would you like to retrieve a random poem, from the archives?"
-       
         line
         ask
         user_input = gets.chomp.to_s.downcase
         if user_input == 'yes'
             line
+            bar
+            line
             print_poem
             line
+            bar
             reprint
         elsif user_input == "no"
             line
@@ -74,17 +76,20 @@ class CLI
     end
 
     def reprint
-        sleep(5)
+        sleep(3)
+        line
         puts "Would you like generate a new poem?"
         ask
         print ""
-        user_input = gets.strip.to_s.downcase.green
-        if user_input == "yes".green
+        user_input = gets.strip.to_s.downcase
+        if user_input == "yes"
+            bar
             line
-            print_poem.light_blue
+            print_poem
             line
+            bar
             reprint
-        else user_input == "no".red
+        else user_input == "no"
             line
             farewell
             line
@@ -101,5 +106,11 @@ class CLI
     def line
      puts ""
     end
+
+    def bar
+        line
+        print "=".green * 40
+        line
+     end
 
 end
