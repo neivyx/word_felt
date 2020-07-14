@@ -8,16 +8,16 @@ class CLI
 
     def initialize
         @input = ""
-        @api = API.new
+        @api = API.new #
     end
 
-    def call
+    def call #start/call/run/launch
         greeting
         start
 
     end
 
-    def greeting
+    def greeting #first greeting 
         line
         line
         line 
@@ -33,23 +33,23 @@ class CLI
     def ask
         sleep(1)
         line
-        puts "Enter 'yes' or 'no' to continue."
+        puts "Enter 'yes' or 'no' to continue." #initial ask prompt
         line
     end
 
     def start
-        sleep(1)
+        sleep(1) #delay
         line
         puts "Would you like to retrieve a random poem, from the archives?"
         line
         ask
         user_input = gets.chomp.to_s.downcase
-        if user_input == 'yes'
+        if user_input == 'yes' 
             line
             bar
-            line
-            print_poem
-            line
+            line # dividers / breaks
+            print_poem # prints poem
+            line # dividers / breaks
             bar
             reprint
         elsif user_input == "no"
@@ -64,18 +64,18 @@ class CLI
 
     end
 
-    def farewell
+    def farewell #end / no response
         line
         puts "farewell my friend.".red
         puts "\tfin.".red
         line
     end
 
-    def print_poem
+    def print_poem #api call
         puts API.new.get_poems
     end
 
-    def reprint
+    def reprint #loop back
         sleep(3)
         line
         puts "Would you like generate a new poem?"
@@ -93,13 +93,12 @@ class CLI
             line
             farewell
             line
-
         end
         
         
     end
 
-    def validation
+    def validation #error
         puts "Whoops. Give it another try!".red
     end
 
