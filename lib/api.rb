@@ -6,16 +6,16 @@ class API
 
     def get_poems
 
-        response = HTTParty.get(URL + ",linecount/;12/author,title,lines").to_a
+        response = HTTParty.get(URL + ",linecount/;12").to_a
         (0..11).each { |i| puts response[rand(154)]['lines'][i]}
 
 
-        Poem.new(@lines,@author,@name)
+        Poem.new(@lines)
         
            
-        # end
+
     end
 
-
-
+    #Poem.new(@lines,@author,@name)
+    #,linecount/;12/author,title,lines"
     end
