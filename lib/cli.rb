@@ -31,7 +31,6 @@ class CLI
     end
 
     def ask
-        sleep(1)
         line
         puts "Enter 'yes' or 'no' to continue." #initial ask prompt
         line
@@ -76,7 +75,7 @@ class CLI
     end
 
     def reprint #loop back
-        sleep(3)
+        sleep(2)
         line
         puts "Would you like generate a new poem?"
         ask
