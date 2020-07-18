@@ -8,12 +8,13 @@ class CLI
 
     def initialize
         @input = ""
-        @api = API.new #
+        @api = API.new
     end
 
     def call #start/call/run/launch
         greeting
-        start
+        get_input
+        # start
 
     end
 
@@ -71,7 +72,15 @@ class CLI
     end
 
     def print_poem #api call
-        puts API.new.get_poems
+        API.new.get_poems
+        puts Poem.all.sample.author
+        # API.new.get_poems
+    end
+
+    def get_input
+        puts "type the name of a author"
+    author_input = gets.chomp
+    API.get_poems(author_input)
     end
 
     def reprint #loop back
