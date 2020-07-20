@@ -71,31 +71,41 @@ class CLI
     def list_authors
         
         input = TTY::Prompt.new
-            user_input = input.select("Choose a author below to print a random poem", %w(William-Shakespeare Edgar-Allan-Poe Oscar-Wilde Emily-Dickinson William-Blake Exit))
+             user_input = input.select("Choose a author below to print a random poem", %w(William-Shakespeare Edgar-Allan-Poe Walt-Whitman Emily-Dickinson William-Blake Exit))
         case user_input
-            when "William-Shakespeare"
-            # random = rand(13..30)
-            @api.get_author_poems("shakespeare","14")
-            print_author_poem
-            when "Edgar-Allan-Poe"
-            @api.get_author_poems("poe","16")
-            print_author_poem
-            when "Oscar-Wilde"
-            @api.get_author_poems("wilde","25")
-            print_author_poem
-            when "Emily-Dickinson"
-            @api.get_author_poems("dickinson","15")
-            print_author_poem
-            when  "William-Blake"
-            @api.get_author_poems("blake","16")
-            print_author_poem
-            when "Exit"
-            menu
-        
-        end
 
+            when "William-Shakespeare"
+                line_count = rand(14..16)
+                @api.get_author_poems("shakespeare","#{line_count}")
+                print_author_poem
+                binding.pry
+            when "Edgar-Allan-Poe"
+                line_count = rand(23..24)
+                @api.get_author_poems("poe","#{line_count}")
+                print_author_poem
+            when "Walt-Whitman"
+                line_count = rand(14..16)
+                @api.get_author_poems("whitman","#{line_count}")
+                print_author_poem
+            when "Emily-Dickinson"
+                line_count = rand(4..6)
+                @api.get_author_poems("dickinson","#{line_count}")
+                print_author_poem
+            when  "William-Blake"
+                line_count = rand(11..12)
+                @api.get_author_poems("blake","#{line_count}")
+                print_author_poem
+            when "Exit"
+                menu
+      
+        end
     end
 
+
+# when "William-Shakespeare"
+#     random = rand(13..30)
+#     @api.get_author_poems("shakespeare","#{random}")
+#     print_author_poem
 
     def farewell #end / no response
         line
@@ -121,16 +131,18 @@ class CLI
     # end
 
     def print_author_poem
-            # Author.all.each do |poem_hash|
-            # puts "#{poem_hash.title} #{poem_hash.author} #{poem_hash.lines}"
-             poem_data = []
+            Author.all.each do |poem_hash|
+            puts "\n#{poem_hash.title.red} by: #{poem_hash.author.light_blue}\n\n #{poem_hash.lines}"
+            line
+
+        #    binding.pry
             #  print poem_data.first
             
-            Author.all.each do |poem_hash|
-                poem_data << "#{poem_hash.title} #{poem_hash.author} #{poem_hash.lines}"
-            end
-            binding.pry
-            puts poem_data[get_input]
+            # Author.all.each do |poem_hash|
+            #     poem_data << "#{poem_hash.title} #{poem_hash.author} #{poem_hash.lines}"
+            # end
+            # binding.pry
+            # puts poem_data[get_input]
 
             # binding.pry
 
@@ -138,7 +150,7 @@ class CLI
 
             
             
-    # end
+    end
 
     #poem_data = Author.all
     #poem_data.first
@@ -184,3 +196,18 @@ end
 end
 
 
+
+#Break Down
+#============
+
+# 1. Print a random Poem
+#     print_poem
+# 2. Would like to see a list of authors?
+#         1. William Shakespeare = ("shakespeare") <--- print poem by Poet/Author
+#         2. Edgar Allan Poe = ("poe")
+#         3. Oscar Wilde = ("wilde")
+#         4. Emily Dickinson = ("dickinson")
+#         5. Mark Twain = ("twain")
+# 3. Exit
+
+#=============
