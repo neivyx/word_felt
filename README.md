@@ -3,7 +3,11 @@
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/word_felt`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 
-Hello! Everyone! this is currently phase 1 out of my WordFelt CLI project which generates random short poems by famous/historic Poets.
+Hello! Everyone! this is my WordFelt CLI Project. WordFelt generates from a poem api based a preselected linecount,author,title.
+
+Phase 1: CLI which generates random short poems by famous/historic Poets.
+
+Phase 2: + a list of famous poet to print poems from. *includes TTYPROMPT menu
 
 Hope you enjoy!
 
