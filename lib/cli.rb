@@ -112,10 +112,10 @@ class CLI
         # API.new.get_poems
         # puts Poem.all.sample.title
         # puts Poem.all.sample.author
-        puts Poem.all.sample.lines
-        random_poem = Poem.all.sample
-        puts "\n #{random_poem.title} by:#{random_poem.author}\n\n #{poem_hash.lines}"
-        binding.pry
+        # puts Poem.all.sample.lines
+        rand_poem = Poem.all.sample
+        puts "\n #{rand_poem.title.red} by:#{rand_poem.author.light_blue}\n\n #{rand_poem.lines}"
+        # binding.pry
 
     
     end
@@ -124,10 +124,12 @@ class CLI
 
     def print_author_poem
         # puts Author.all.sample.lines
-            Author.all.each do |poem_hash|
-            puts "\n#{poem_hash.title.red} by: #{poem_hash.author.light_blue}\n\n #{poem_hash.lines}"
+        # Author.all.each do |poem_hash|
+        # puts "\n#{poem_hash.title.red} by:#{poem_hash.author.light_blue}\n\n #{poem_hash.lines}"
+        rand_author_poem = Author.all.sample
+        puts "\n #{rand_author_poem.title.red} by:#{rand_author_poem.author.light_blue}\n\n #{rand_author_poem.lines}"
             line
-        end
+        # end
 # binding.pry
     end
 
