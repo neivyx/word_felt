@@ -128,7 +128,7 @@ class CLI
         # puts "\n#{poem_hash.title.red} by:#{poem_hash.author.light_blue}\n\n #{poem_hash.lines}"
         rand_author_poem = Author.all.sample
         puts "\n #{rand_author_poem.title.red} by:#{rand_author_poem.author.light_blue}\n\n #{rand_author_poem.lines}"
-        Author.clear
+        Author.all.clear
             line
         # end
 # binding.pry
