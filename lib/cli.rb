@@ -13,6 +13,7 @@ class CLI
 
     def call
         greeting
+        API.new.get_poems
         menu
     
 
@@ -108,21 +109,26 @@ class CLI
     end
 
     def print_poem
-        API.new.get_poems
+        # API.new.get_poems
         # puts Poem.all.sample.title
         # puts Poem.all.sample.author
         puts Poem.all.sample.lines
+        random_poem = Poem.all.sample
+        puts "\n #{random_poem.title} by:#{random_poem.author}\n\n #{poem_hash.lines}"
+        binding.pry
+
     
     end
 
    
 
     def print_author_poem
+        # puts Author.all.sample.lines
             Author.all.each do |poem_hash|
             puts "\n#{poem_hash.title.red} by: #{poem_hash.author.light_blue}\n\n #{poem_hash.lines}"
             line
         end
-
+# binding.pry
     end
 
 
