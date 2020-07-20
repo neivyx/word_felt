@@ -11,15 +11,14 @@ class CLI
         @api = API.new
     end
 
-    def call #start/call/run/launch
+    def call
         greeting
         menu
-        # get_input
-        # start
+    
 
     end
 
-    def greeting #first greeting 
+    def greeting 
         line
         line
         line 
@@ -101,14 +100,14 @@ class CLI
 
 
 
-    def farewell #end / no response
+    def farewell
         line
         puts "farewell my friend.".red
         puts "\tfin.".red
         line
     end
 
-    def print_poem #api call
+    def print_poem
         API.new.get_poems
         # puts Poem.all.sample.title
         # puts Poem.all.sample.author
@@ -126,32 +125,6 @@ class CLI
 
     end
 
-    # def reprint
-    #     sleep(2)
-    #     line
-    #     puts "Would you like generate a new poem?"
-    #     ask
-    #     print ""
-    #     user_input = gets.strip.to_s.downcase
-    #     if user_input == "yes"
-    #         bar
-    #         line
-    #         print_poem
-    #         line
-    #         bar
-    #         reprint
-    #     else user_input == "no"
-    #         line
-    #         farewell
-    #         line
-    #     end
-        
-        
-    end
-
-    def validation
-        puts "Whoops. Give it another try!".red
-    end
 
     def line
      puts ""
@@ -164,7 +137,6 @@ class CLI
      end
 
 end
-
 
 
 #Break Down
