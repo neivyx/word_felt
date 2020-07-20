@@ -109,10 +109,6 @@ class CLI
     end
 
     def print_poem
-        # API.new.get_poems
-        # puts Poem.all.sample.title
-        # puts Poem.all.sample.author
-        # puts Poem.all.sample.lines
         rand_poem = Poem.all.sample
         puts "\n #{rand_poem.title.red} by:#{rand_poem.author.light_blue}\n\n #{rand_poem.lines}"
         # binding.pry
@@ -123,14 +119,10 @@ class CLI
    
 
     def print_author_poem
-        # puts Author.all.sample.lines
-        # Author.all.each do |poem_hash|
-        # puts "\n#{poem_hash.title.red} by:#{poem_hash.author.light_blue}\n\n #{poem_hash.lines}"
         rand_author_poem = Author.all.sample
         puts "\n #{rand_author_poem.title.red} by:#{rand_author_poem.author.light_blue}\n\n #{rand_author_poem.lines}"
         Author.all.clear
             line
-        # end
 # binding.pry
     end
 
@@ -156,9 +148,9 @@ end
 # 2. Would like to see a list of authors?
 #         1. William Shakespeare = ("shakespeare") <--- print poem by Poet/Author
 #         2. Edgar Allan Poe = ("poe")
-#         3. Oscar Wilde = ("wilde")
+#         3. Walt Whitman = ("whitman")
 #         4. Emily Dickinson = ("dickinson")
-#         5. Mark Twain = ("twain")
+#         5. William Blake = ("blake")
 # 3. Exit
 
 #=============
