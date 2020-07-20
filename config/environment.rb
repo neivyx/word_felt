@@ -6,7 +6,7 @@ Bundler.require
 require_relative "../lib/api.rb"
 require_relative "../lib/cli.rb"
 require_relative "../lib/poems.rb"
-
+require_relative "../lib/author.rb"
 
 module WordFelt #ignore
   class Error < StandardError; end
