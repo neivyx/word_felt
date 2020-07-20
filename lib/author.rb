@@ -5,7 +5,6 @@ class Author
     @@all = []
 
     def initialize(title,author,lines)
-        # @name = name
         @title = title
         @author = author
         @lines = lines
@@ -29,5 +28,5 @@ end
 
 
 
-# def initialize(author:,title:,lines:)
+
 
