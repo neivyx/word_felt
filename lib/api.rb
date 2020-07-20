@@ -2,35 +2,65 @@ require 'pry'
 require 'httparty'
 
 class API
-    URL = "https://poetrydb.org/author/"
+    URL = "https://poetrydb.org/author"
 
-    # def get_poems
+    def get_poems
 
-    #     response = HTTParty.get(URL + ",linecount/;12").to_a
-    #     response.each do |poem_hash|
+        response = HTTParty.get(URL + ",linecount/;12").to_a
+        response.each do |poem_hash|
+            Poem.new(poem_hash['title'],poem_hash['author'],poem_hash['lines'])
+        end
+# binding.pry
+    end
+
+    BASE_URL = "https://poetrydb.org/author"
+
+    def get_author_poems(name,i)
+
+        response = HTTParty.get(BASE_URL + ",linecount/#{name};#{i}/lines,title,author").to_a
+        response.each do |poem_hash|
+            Author.new(poem_hash['title'],poem_hash['author'],poem_hash['lines'])
+        end
+# binding.pry
+    end
+    
+
+
+
+
+    #below is for author input
+    
+    # URL = "https://poetrydb.org/author"
+
+    # def get_poems(name)
+
+    #     response = HTTParty.get(URL + ",linecount/#{name};14/lines,title,author").to_s
+    #     response.map do |poem_hash|
     #         Poem.new(title: poem_hash['title'], author: poem_hash['author'], lines: poem_hash['lines'])
     #     end
+
+    # end
+
+    # https://poetrydb.org/author,linecount/poe;14/lines,title,author
     
+end
+  
+        #https://poetrydb.org/author,linecount/;12"
 
 
-    def get_poems(name)
+    #below is for random poem
 
-        response = HTTParty.get(URL + ",linecount/#{name};14/lines,title,author").to_a
-        response.each do |poem_hash|
-            Poem.new(title: poem_hash['title'], author: poem_hash['author'], lines: poem_hash['lines'])
-        end
+        # URL = "https://poetrydb.org/author"
+
+        # def get_poems
+
+        #     response = HTTParty.get(URL + ",linecount/;12").to_a
+        #     response.each do |poem_hash|
+        #         Poem.new(title: poem_hash['title'], author: poem_hash['author'], lines: poem_hash['lines'])
+        #     end
     
-
-        # https://poetrydb.org/author,linecount/poe;14/lines,title,author
+        # end
         
-
-        
-        #Poem.new(@lines)
-
-    
-        # (@lines)
-
-
 
 
 
@@ -56,8 +86,21 @@ class API
         #let user enter, author. CSI
            
 
-    end
+    # end
 
     #Poem.new(@lines,@author,@name)
-    #,linecount/;12/author,title,lines"
-    end
+    # #,linecount/;12/author,title,lines"
+    # end
+
+
+    # https://poetrydb.org/author
+
+          # https://poetrydb.org/author,linecount/poe;14/lines,title,author
+        
+        #   https://poetrydb.org/random/3/author,title,
+        # https://poetrydb.org/random/3
+        
+        #Poem.new(@lines)
+
+    
+        # (@lines)
