@@ -8,6 +8,7 @@ class Author
         @title = title
         @author = author
         @lines = lines
+        # @poems = []
         @@all << self
     end
 
@@ -23,8 +24,31 @@ class Author
         @@all 
     end
 
+    # def add_poems(poem_name)
+    #     new_poem = Poem.new(poem_name, self)
+    #     @poems << new_poem
+    #     new_poem
+    # end
 
+
+
+    def new_poem(title, author)
+        Poem.new(title, self, lines)
+
+    end
+
+    def poems
+        Poem.all.select { |poem| poem.author == self}
+    end
+
+    def lines_map
+        poems.map(&:@lines)
+    end
+
+binding.pry
 end
+
+
 
 
 
